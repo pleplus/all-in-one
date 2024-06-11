@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:latest
 # Probably from here https://github.com/elastic/elasticsearch/blob/main/distribution/docker/src/docker/Dockerfile
-FROM elasticsearch:8.13.4
+FROM elasticsearch:8.14.0
 
 USER root
 
@@ -19,5 +19,5 @@ RUN set -ex; \
 
 USER 1000:0
 
-HEALTHCHECK CMD nc -z localhost 9200 || exit 1
+HEALTHCHECK CMD nc -z 127.0.0.1 9200 || exit 1
 LABEL com.centurylinklabs.watchtower.enable="false"
